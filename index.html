@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF to Excel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">PX</span><span>PDF to Excel <em>Studio</em></span></div>
+      <div class="privacy"><span class="status-dot"></span> Runs in your browser</div>
+    </header>
+
+    <section class="intro">
+      <p class="kicker">Document utility / table extraction</p>
+      <h1>Turn dense PDFs into<br><span>workable spreadsheets.</span></h1>
+      <p class="lede">Extract every programme table into one clean, reviewable Excel worksheet while retaining table colors and withdrawn-row italics.</p>
+    </section>
+
+    <section class="workspace" aria-label="PDF conversion workspace">
+      <div class="upload-panel" id="dropZone">
+        <input id="fileInput" type="file" accept="application/pdf" multiple hidden>
+        <div class="upload-icon">↑</div>
+        <h2>Drop a PDF here</h2>
+        <p>or choose a file from your computer</p>
+        <button class="primary-button" id="chooseButton" type="button">Choose PDF</button>
+        <div class="file-note">PDF files only · processing stays local</div>
+      </div>
+      <aside class="side-panel">
+        <div class="side-heading"><span>Output recipe</span><span class="recipe-count">03</span></div>
+        <div class="recipe-item"><span class="recipe-number">01</span><div><strong>One worksheet</strong><p>Tables stacked vertically in PDF order.</p></div></div>
+        <div class="recipe-item"><span class="recipe-number">02</span><div><strong>Programme first</strong><p>Title is repeated on every student row.</p></div></div>
+        <div class="recipe-item"><span class="recipe-number">03</span><div><strong>Readable by design</strong><p>Headers, borders, filters and pastel table bands.</p></div></div>
+      </aside>
+    </section>
+
+    <section class="progress-panel hidden" id="progressPanel">
+      <div class="progress-top"><span id="progressLabel">Reading document</span><strong id="progressValue">0%</strong></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <p id="progressDetail">Preparing PDF engine...</p>
+    </section>
+
+    <section class="result-panel hidden" id="resultPanel">
+      <div class="result-heading"><div><p class="kicker">Extraction ready</p><h2 id="resultTitle">Your workbook is ready to review</h2></div><button class="secondary-button" id="downloadButton" type="button">↓ Download .xlsx</button></div>
+      <div class="stats" id="stats"></div>
+      <div class="table-wrap"><table id="previewTable"></table></div>
+      <div class="result-footer"><span id="previewNote"></span><button class="text-button" id="newFileButton" type="button">+ Add PDF pack</button></div>
+    </section>
+    <p class="error hidden" id="errorMessage" role="alert"></p>
+    <footer>
+      <span>PDF → XLSX</span>
+      <span>Designed for structured student registers</span>
+      <a class="github-link" href="https://github.com/ksangeeth1234" target="_blank" rel="noopener noreferrer" aria-label="Visit ksangeeth1234 on GitHub">
+        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 .7a11.3 11.3 0 0 0-3.58 22.02c.57.1.78-.25.78-.55v-2.16c-3.18.69-3.85-1.34-3.85-1.34-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.72-1.54-2.54-.29-5.2-1.27-5.2-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.12 1.17a10.87 10.87 0 0 1 5.68 0c2.16-1.48 3.12-1.17 3.12-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.4-2.67 5.36-5.21 5.65.41.35.77 1.04.77 2.1v3.18c0 .3.21.66.79.55A11.3 11.3 0 0 0 12 .7Z" /></svg>
+        <span>Built by <strong>ksangeeth1234</strong></span>
+        <span class="github-arrow" aria-hidden="true">↗</span>
+      </a>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
